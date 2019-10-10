@@ -72,7 +72,7 @@ do
     elif [ "$file" = "table-read-only" -o "$file" = "table-read-only-2" ]
     then
 	echo -e -n "\n    Then I should see the phrase \"Do you want to add another fruit to the list?\"\n    And I click the button \"Yes\"\n    Then I should see the phrase \"Tell me about the fruit.\"\n    And I set \"Name\" to \"Grape\"\n    And I set \"Seeds\" to \"0\"\n    And I click the button \"Continue\"\n    Then I should see the phrase \"Do you want to add another fruit to the list?\"\n    And I click the button \"Yes\"\n    Then I should see the phrase \"Tell me about the fruit.\"\n    And I set \"Name\" to \"Watermelon\"\n    And I set \"Seeds\" to \"43\"\n    And I click the button \"Continue\"\n    Then I should see the phrase \"Do you want to add another fruit to the list?\"\n    And I click the button \"No\"\n    And I save a screenshot to \"$tempfile\"" >> $featurefile    
-    elif [ "$file" = "table-dict-edit" -o "$file" = "table-dict-edit-minimum-number" -o "$file" = "table-dict-edit-delete-buttons" -o "$file" = "table-dict-delete-buttons" ]
+    elif [ "$file" = "table-dict-edit" -o "$file" = "table-dict-edit-minimum-number" -o "$file" = "table-dict-edit-delete-buttons" -o "$file" = "table-dict-delete-buttons" -o "$file" = "table-dict-confirm" ]
     then
 	echo -e -n "\n    And I click the option \"Yes\" under \"Do you get income from benefits?\"\n    And I wait 1 second\n    And I set \"How much do you get from benefits?\" to \"434\"\n    And I click the button \"Continue\"\n    Then I should see the phrase \"Income from employment\"\n    And I click the option \"No\" under \"Do you get income from employment?\"\n    And I click the button \"Continue\"\n    Then I should see the phrase \"Income from interest\"\n    And I click the option \"Yes\" under \"Do you get income from interest?\"\n    And I wait 1 second\n    And I set \"How much do you get from interest?\" to \"532\"\n    And I click the button \"Continue\"\n    And I save a screenshot to \"$tempfile\"" >> $featurefile
     elif [ "$file" = "review-edit-list-table" ]
@@ -163,7 +163,7 @@ do
     elif [ "$file" = "inverse-navbar" ]
     then
 	convert $tempfile -crop 1005x260+0+0 docassemble_webapp/docassemble/webapp/static/examples/$file.png
-    elif [ "$file" = "fields" -o "$file" = "attachment-code" -o "$file" = "attachment-simple" -o "$file" = "document-markup" -o "$file" = "document-variable-name" -o "$file" = "document-cache-invalidate" -o "$file" = "address-autocomplete-test"  -o "$file" = "address-autocomplete-test" -o "$file" = "table-width" -o "$file" = "document-language" -o "$file" = "allow-downloading-true" -o "$file" = "allow-downloading-true-zip-filename" -o "$file" = "document-docx" -o "$file" = "document-docx-from-rtf" -o "$file" = "document-file" ]
+    elif [ "$file" = "fields" -o "$file" = "attachment-code" -o "$file" = "attachment-simple" -o "$file" = "document-markup" -o "$file" = "document-variable-name" -o "$file" = "document-cache-invalidate" -o "$file" = "address-autocomplete-test"  -o "$file" = "address-autocomplete-test" -o "$file" = "table-width" -o "$file" = "document-language" -o "$file" = "allow-downloading-true" -o "$file" = "allow-downloading-true-zip-filename" -o "$file" = "document-docx" -o "$file" = "document-docx-from-rtf" -o "$file" = "document-file" -o "$file" = "google-sheet-3" ]
     then
 	convert $tempfile -crop 478x1999+264+92 -background white -splice 0x1 -background black -splice 0x1 -trim +repage -chop 0x1 docassemble_webapp/docassemble/webapp/static/examples/$file.png
     else

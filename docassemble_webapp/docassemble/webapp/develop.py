@@ -5,6 +5,12 @@ import re
 import sys
 from six import string_types
 
+def validate_project_name(form, field):
+    if re.search('^[0-9]', field.data):
+        raise ValidationError(word('Project name cannot begin with a number'))
+    if re.search('[^A-Za-z0-9]', field.data):
+        raise ValidationError(word('Valid characters are: A-Z, a-z, 0-9'))
+
 def validate_name(form, field):
     if re.search('[^A-Za-z0-9\-]', field.data):
         raise ValidationError(word('Valid characters are: A-Z, a-z, 0-9, hyphen'))
@@ -28,7 +34,6 @@ class UpdatePackageForm(FlaskForm):
     gitbranch = SelectField(word('GitHub Branch'))
     zipfile = FileField(word('Zip File'))
     pippackage = StringField(word('Package on PyPI'))
-    use_cache = BooleanField(word('Use pip cache'), default=True)
     submit = SubmitField(word('Update'))
 
 class ConfigForm(FlaskForm):
@@ -57,6 +62,8 @@ class LogForm(FlaskForm):
 class Utilities(FlaskForm):
     pdfdocxfile = FileField(word('PDF/DOCX File'))
     scan = SubmitField(word('Scan'))
+    interview = StringField(word('Interview'))
+    interview_submit = SubmitField(word('Download'))
     language = StringField(word('Language'))
     language_submit = SubmitField(word('Translate'))
     officeaddin_version = StringField(word('Version'), default='0.0.0.1')
@@ -77,6 +84,19 @@ class PlaygroundFilesEditForm(FlaskForm):
     submit = SubmitField(word('Save'))
     delete = SubmitField(word('Delete'))
 
+class RenameProject(FlaskForm):
+    name = StringField(word('New Name'), validators=[
+        validators.Required(word('Project name is required')), validate_project_name])
+    submit = SubmitField(word('Rename'))
+
+class DeleteProject(FlaskForm):
+    submit = SubmitField(word('Delete'))
+
+class NewProject(FlaskForm):
+    name = StringField(word('Name'), validators=[
+        validators.Required(word('Project name is required')), validate_project_name])
+    submit = SubmitField(word('Save'))
+
 class PullPlaygroundPackage(FlaskForm):
     github_url = StringField(word('GitHub URL'))
     github_branch = SelectField(word('GitHub Branch'))
@@ -91,7 +111,7 @@ class PlaygroundPackagesForm(FlaskForm):
     license = StringField(word('License'), default='The MIT License (MIT)', validators=[validators.Length(min=0, max=255)])
     author_name = StringField(word('Author Name'), validators=[validators.Length(min=0, max=255)])
     author_email = StringField(word('Author E-mail'), validators=[validators.Length(min=0, max=255)])
-    description = TextAreaField(word('Description'), validators=[validators.Length(min=0, max=255)], default="A docassemble extension.")
+    description = StringField(word('Description'), validators=[validators.Length(min=0, max=255)], default="A docassemble extension.")
     version = StringField(word('Version'), validators=[validators.Length(min=0, max=255)], default="0.0.1")
     url = StringField(word('URL'), validators=[validators.Length(min=0, max=255)], default="")
     dependencies = SelectMultipleField(word('Dependencies'))
@@ -102,6 +122,7 @@ class PlaygroundPackagesForm(FlaskForm):
     sources_files = SelectMultipleField(word('Source files'))
     readme = TextAreaField(word('README file'), default='')
     github_branch = SelectField(word('Branch'))
+    github_branch_new = StringField(word('Name of new branch'))
     commit_message = StringField(word('Commit message'), default="")
     submit = SubmitField(word('Save'))
     download = SubmitField(word('Download'))
@@ -122,9 +143,12 @@ class OneDriveForm(FlaskForm):
     cancel = SubmitField(word('Cancel'))
 
 class GitHubForm(FlaskForm):
+    shared = BooleanField(word('Access shared repositories'))
+    orgs = BooleanField(word('Access organizational repositories'))
+    save = SubmitField(word('Save changes'))
     configure = SubmitField(word('Configure'))
     unconfigure = SubmitField(word('Disable'))
-    cancel = SubmitField(word('Cancel'))
+    cancel = SubmitField(word('Back to profile'))
 
 class TrainingForm(FlaskForm):
     the_package = HiddenField()
@@ -143,7 +167,7 @@ class TrainingUploadForm(FlaskForm):
 class AddinUploadForm(FlaskForm):
     content = HiddenField()
     filename = HiddenField()
-    
+
 class APIKey(FlaskForm):
     action = HiddenField()
     key = HiddenField()

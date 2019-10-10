@@ -1,5 +1,716 @@
 # Change Log
 
+## [0.5.27] - 2019-10-10
+### Fixed
+- Issue with session deletion.
+
+## [0.5.26] - 2019-10-09
+### Changed
+- Limited data retrieved by Google address autocomplete feature.
+### Fixed
+- NGINX configuration omitted `POSTURLROOT`.
+
+## [0.5.25] - 2019-10-09
+### Changed
+- Configuration page now shows a listing of errors in the
+  Configuration, if there are any.
+### Fixed
+- Error with URLs to cloud-hosted files.
+
+## [0.5.24] - 2019-10-08
+### Fixed
+- Error with Run button in Playground.
+- Erroneous space in the CSS class names of some fieldsets.
+- Error with non-cloud temporary URLs.
+
+## [0.5.23] - 2019-10-08
+### Added
+- Additional cache invalidation headers.
+
+## [0.5.22] - 2019-10-08
+### Added
+- The `/api/fields` endpoint.
+- The `use cloud urls` directive in the Configuration.
+### Fixed
+- Miscellaneous problems with ajax field type.
+- Syntax with Let's Encrypt renewal not compatible with all
+  configuration types.
+- Problem with obtaining JSON version of `question` where `js show if`
+  is in use.
+- Unnecessary saving of interview answers with the wrong encryption.
+
+## [0.5.21] - 2019-10-04
+### Fixed
+- Error when Playground project name matched name of a Playground
+  package.
+
+## [0.5.20] - 2019-10-04
+### Fixed
+- Problem with office task pane.
+- Problem with YAML in field scanner in utilities.
+- Problem with `endpoint url` option.
+
+## [0.5.19] - 2019-10-02
+### Fixed
+- Problem with background tasks and uploads.
+
+## [0.5.18] - 2019-10-02
+### Added
+- Projects system in the Playground.
+- The `verbatim()` function.
+
+## [0.5.17] - 2019-09-26
+### Added
+- An option for assembling text files by setting `raw: True` under
+  `attachment`.
+
+## [0.5.16] - 2019-09-25
+### Added
+- Custom `datatype` feature.
+### Fixed
+- Session-related bug.
+- Thumbnail generation bug.
+- Image icon problems.
+- External URLs calculated inconsistently.
+
+## [0.5.15] - 2019-09-23
+### Added
+- The `css class` screen part.
+- The `allow anonymous access` Configuration directive.
+### Fixed
+- Session-related bug.
+
+## [0.5.14] - 2019-09-23
+### Fixed
+- Markdown of single-column `table`s not recognized.
+
+## [0.5.13] - 2019-09-22
+### Added
+- The `use_objects` option for `objects_from_file()`
+- The `use objects` option for `objects from file`.
+### Changed
+- The `objects_from_file()` function and the `objects from file` block
+  now support JSON files as well as YAML files.
+### Fixed
+- Transitional error related to session upgrade.
+
+## [0.5.12] - 2019-09-21
+### Changed
+- Users can run multiple sessions in different browser tabs.
+- The `i` URL parameter is required for any endpoint that uses the
+  current sesion.
+- The `DAEmpty` class now supports comparison operators.
+### Fixed
+- IndexErrors appeared under some circumstances when using actions.
+- Live Help bug.
+
+## [0.5.11] - 2019-09-16
+### Fixed
+- Problem with checkbox object initialization inside of `DADict`.
+- Error when trying to inspect functions to get usage information for
+  the Playground sidebar.
+- Renewal of Let's Encrypt included obsolete domains.
+
+## [0.5.10] - 2019-09-15
+### Added
+- The `symbol` keyword parameter of `currency()`.
+- The `currency_symbol` keyword parameter of `set_locale()`.
+### Fixed
+- Problem with `disable others` when `allow non-idempotent questions`
+  was `False`.
+- Problem with `reconsider` under certain circumstances.
+- Error when `command()` used immediately after a file upload.
+- Error when exporting dates in a table to Excel.
+
+## [0.5.9] - 2019-09-12
+### Fixed
+- `NoneType` error when using `data` with `use objects`.
+- Error when non-base64 dictionary keys happened to be valid base64.
+
+## [0.5.8] - 2019-09-11
+### Added
+- The `delattr` method of the `DAObject` class.
+### Changed
+- Different behavior when `allow non-idempotent questions` is set to
+  `False`.
+### Fixed
+- Unpickling errors in `user_interviews()` not trapped appropriately.
+
+## [0.5.7] - 2019-09-10
+### Changed
+- The `url_action_perform()` and `url_action_call()` JavaScript
+  functions are renamed to `action_perform()` and `action_call()`.
+  Aliases are in place for backwards-compatibility.
+- Widths of images inserted into DOCX files now support centimeters
+  and twips as units.
+- The `continue button field` can now be used with other types of
+  `question`s that set variables, rather than just `fields`.
+### Fixed
+- Unpickling errors in `user_interviews()` not trapped.
+
+## [0.5.6] - 2019-09-08
+### Added
+- Option in the JavaScript `flash()` function to clear existing
+  messages.
+### Fixed
+- Error when displaying the JSON form of certain `question`s.
+- Error when using `Value` objects in the `choices` of a `datatype:
+  object` field.
+
+## [0.5.5] - 2019-09-07
+### Added
+- The `require gathered` specifier for tables.
+### Changed
+- Running `.pop()` on a `DAList` no longer triggers list gathering.
+- Every module file installed in the `docassemble` namespace that
+  contains a class definition will be loaded when the server starts or
+  restarts.
+### Fixed
+- Erroneous message about starting new interview was appearing on
+  restart.
+- Default values not appearing for some `datatype: object` fields.
+- Unpickle errors when modules that contain classes are not loaded.
+- Tooltips not showing up on sliders.
+
+## [0.5.4] - 2019-09-05
+### Fixed
+- The `maximum content length` was being superseded by a NGINX content
+  length limiter.
+- Word add-in bug.
+
+## [0.5.3] - 2019-09-04
+### Added
+- The `exit url` specifier under `metadata`.
+
+## [0.5.2] - 2019-09-03
+### Fixed
+- S3 error.
+
+## [0.5.1] - 2019-09-02
+### Fixed
+- `get_question_data()` and related functions raised exception.
+- Let's Encrypt renewal error.
+
+## [0.5.0] - 2019-09-02
+### Added
+- The `advance_progress_meter` option for the `/api/session` POST API
+  endpoint.
+- The `DAWEBSERVER` Docker environment variable and the `web server`
+  Configuration directive.
+- The `S3ENDPOINTURL` Docker environment variable and the `endpoint
+  url` Configuration directive under `s3`.
+### Changed
+- Upgrade Docker OS to Debian buster.
+- Upgrade Python from 3.5 to 3.6.
+- The default web browser under Docker is now NGINX.
+- The Docker image now builds in two parts.  The jhpyle/docassemble-os
+  image is the base image for jhpyle/docassemble.
+- The `get_session_variables()` and `set_session_variables()`
+  functions use the current user's decryption key by default.
+
+## [0.4.80] - 2019-08-22
+### Fixed
+- Setting of `__version__` in Python 2.7 raised Unicode error.
+- Back button after action in URL repeated the action.
+- The `progress` value was missing from the JSON representation of the
+  question.
+
+## [0.4.79] - 2019-08-21
+### Added
+- The `SQLObject` class.
+- The `input type` called `ajax`.
+- The `paragraphs` Jinja2 filter.
+### Changed
+- The `__version__` variable is now defined in packages generated from
+  the Playground packages folder.
+- UTM parameters are retained if an `analytics id` is defined under
+  `google` in the Configuration, or a `segment id` directive is
+  defined in the Configuration.
+- The Playground packages folder GitHub commit process now uses `git
+  merge` to merge changes, which means it might fail if a commit would
+  overwrite changes.
+- The Playground packages folder now allows for committing to a new
+  remote branch.
+### Fixed
+- Incorrect behavior during initial visit to `/interview` when
+  interview uses unique sessions.
+- Interview advanced a step despite `validation code` raising an
+  exception.
+
+## [0.4.78] - 2019-08-15
+### Added
+- The `features` option `labels above fields`.
+### Fixed
+- Errors with `sessions are unique` and `required privileges`.
+
+## [0.4.77] - 2019-08-14
+### Added
+- The `enable playground` Configuration directive.
+### Changed
+- The behavior of the `label` option of `list collect` no longer
+  prints text before `1.`, `2.`, etc.  Now the `label` supplies the
+  whole label for the item, and it can include the number by way of
+  the index variable.
+### Fixed
+- The `list collect` feature raised an exception when the field
+  definition included Mako substitution.
+- Non-required upload fields were creating zero-byte files on some
+  servers.
+
+## [0.4.76] - 2019-08-12
+### Changed
+- The syslog-ng server is now started after the web server.
+### Fixed
+- Unhelpful error message when there was an interview parsing error.
+- `DAStaticFile` objects not being included in DOCX files correctly.
+
+## [0.4.75] - 2019-08-12
+### Added
+- The `administrative interviews` Configuration directive
+- The `sessions are unique`, `required privileges for listing`, and
+  `hidden` specifiers under `metadata`.
+### Changed
+- The `words` system no longer uses code names like `pdf_message` and
+  `save_as_multiple`.
+- The `required privileges` specifier under `metadata` now prevents
+  users without a valid privilege from starting the interview.  The
+  `required privileges for listing` now controls whether the interview
+  is listed under `/list`.
+### Fixed
+- Passing an asterisk in a list to Flask-CORS resulted in a regular
+  expression error.
+- Not all Flask packages accept integers as the
+  `PERMANENT_SESSION_LIFETIME`.
+
+## [0.4.74] - 2019-08-09
+### Fixed
+- The `undefine()` function did not always find the interview
+  answers.
+
+## [0.4.73] - 2019-08-09
+### Added
+- Support for noun pluralizing and verb conjugation in Spanish,
+  French, Italian, German, and Dutch.
+- Additional methods for `DAOAuth` objects.
+### Changed
+- The output of the `interview_menu()` function, the `/api/list`
+  endpoint, and the `/list?json=1` endpoint now include interview
+  metadata.
+- The `undefine()` function now accepts multiple variables names.
+### Fixed
+- `DAObject`s that are attributes of `DAList` items had their
+  `instanceName`s rewritten when the parent list was altered.
+- When an object that was already defined was edited using `fields`
+  with `datatype: object` or `datatype: object_radio`, the default
+  value was not showing.
+- The office add-in was not using the best method to determine the
+  full URL of the server.
+
+## [0.4.72] - 2019-08-07
+### Fixed
+- Translation of metadata titles not compatible with `translations`.
+- JavaScript evaluated in local context rather than global context.
+- Language not set when e-mailing assembled document in the
+  background.
+
+## [0.4.71] - 2019-08-06
+### Changed
+- API for making user accounts inactive now supports permanent
+  deletion.
+- API for setting variables now supports initializing `DAObject`s.
+- Multiple choice options specified with code can be specified with
+  lists of tuples.
+### Fixed
+- Missing system phrase used in input validation.
+
+## [0.4.70] - 2019-08-03
+### Added
+- Account deletion options.
+- Options in the user profile for controlling which repositories will
+  be considered when the Playground packages folder looks for and
+  commits to GitHub repositories.
+- Configuration directives `session lifetime seconds`, `babel dates
+  map`, `admin can delete account`, `user can delete account`, and
+  `delete account deletes shared`.
+### Changed
+- In tables, ordered dictionaries will use their built-in order.
+- Base64 padding removed from field names.
+### Fixed
+- Poppler upgrade interfered with width of images in popups.
+- File upload widget JavaScript bug.
+
+## [0.4.69] - 2019-07-29
+### Fixed
+- Unnecessary file cache invalidation affected Playground performance
+  when using cloud storage.
+- Incorrect method of setting Debian timezone.
+
+## [0.4.68] - 2019-07-28
+### Added
+- The `/api/resume_url`, `/api/temp_url`, `/api/config`,
+  `/api/package`, and `/api/package_update_status` API endpoints.
+- The `expire` and `session` parameters of `/api/login_url`.
+- The `hook_on_gather()` and `hook_after_gather()` methods of
+  `DAList`, `DADict`, and `DASet`.
+### Fixed
+- Bug in the `complete_elements()` method of `DADict`.
+- Incomplete support for editing lists that have `auto_gather` turned
+  off.
+
+## [0.4.67] - 2019-07-25
+### Added
+- The `confirm` option for table editing.
+### Changed
+- The "Select..." option on a dropdown is omitted when the field is
+  required and a default value is selected.
+### Fixed
+- The `keys()` method of `DADict` was removed when `keys` included in
+  constructor.
+- The language did not switch unless it did not match the default
+  language.
+- Restart buttons did not work from `event` screens.
+
+## [0.4.66] - 2019-07-23
+### Changed
+- Allow sending multiple invite e-mails at once.
+### Fixed
+- Canceling phone live help availability failed.
+- The 404 error from `/interview` did not use the 404 template.
+
+## [0.4.65] - 2019-07-19
+### Fixed
+- Erasing phone number in Monitor raised an error.
+- OneDrive synchronization error.
+
+## [0.4.64] - 2019-07-17
+### Changed
+- Upgraded CSS and JavaScript dependencies.
+### Fixed
+- JavaScript for file uploads was incompatible with a Firefox add-on.
+- Error during initialize process possibly caused by stderr being made
+  non-blocking.
+- Bug in `indent()` function.
+- File upload previews shown twice under certain circumstances due to
+  `show if` JavaScript.
+
+## [0.4.63] - 2019-07-16
+### Added
+- The `/resume` endpoint.
+### Fixed
+- Unpickleable object added to the document cache in the internal
+  variables.
+
+## [0.4.62] - 2019-07-14
+### Added
+- The `temporary` and `once_temporary` options to the
+  `interview_url()` and related functions.
+### Fixed
+- Too many monitor connections led to SQL error.
+- Some functions did not work in actions.
+
+## [0.4.61] - 2019-07-10
+### Added
+- The `set_status()` and `get_status()` functions.
+### Changed
+- Disabled `pip` cache.
+- Restored pre-0.4.55 behavior allowing Mako in multiple choice
+  values.
+
+## [0.4.60] - 2019-07-09
+### Changed
+- More robust Docker scripts.
+### Fixed
+- Error with cloud cache.
+
+## [0.4.59] - 2019-07-05
+### Changed
+- Changes manually made to `/etc/apache2/sites-available` files while
+  the container is running will now be backed up upon shutdown and
+  restored upon startup.
+### Fixed
+- Fatal error when invalid global javascript file referenced in
+  Configuration.
+
+## [0.4.58] - 2019-07-05
+### Changed
+- CORS headers now handled by Flask rather than Apache.
+- The `cross site domain` Configuration directive is renamed to `cross
+  site domains` and the value must be a list.
+- Removed the `CROSSSITEDOMAIN` Docker environment variable.
+- More frequent deletion of temporary files.
+
+## [0.4.57] - 2019-07-01
+### Added
+- The `explain()`, `clear_explanations()`, and `explanation()`
+  functions.
+### Fixed
+- Problems with Google sign-in on Python 3.
+
+## [0.4.56] - 2019-06-29
+### Added
+- The `initializeObject` method of `DAList`.
+### Fixed
+- Error gathering `DAList` of `datatype: checkboxes` items.
+- Error when using `default` and `list collect`.
+- Errors with `DAStore`.
+
+## [0.4.55] - 2019-06-28
+### Added
+- The `DAStore` object.
+### Changed
+- Mako no longer allowed in non-label items of `choices` or `buttons`.
+- If `backup days` is `0`, no daily backups will be done.
+### Fixed
+- Error when `dialects` enabled under `voicerss`.
+
+## [0.4.54] - 2019-06-26
+### Added
+- The `language map` directive under the `voicerss` Configuration
+  directive.
+### Changed
+- Renamed `languages` under the `voicerss` Configuration directive to
+  `dialects` (with backwards compatibility).
+### Fixed
+- `list collect` on empty non-object list did not show the first item.
+- Wrong protection on some cells in translation spreadsheets.
+- `nan` values appeared in translation spreadsheets.
+- Terms with capital letters were not being translated.
+- System terms were not appearing in translation YAML when Google
+  Cloud Translation API was not configured.
+
+## [0.4.53] - 2019-06-26
+### Added
+- Jinja2 filters `markdown` and `RichText`.
+### Changed
+- Ampersand correction for DOCX now happens in Jinja2 even if pipe
+  already used.
+### Fixed
+- The `hint` was missing from the data representation of a field.
+- The `note` and `html` were missing from the data representation of a
+  field when not standalone.
+- Group editing did not work with non-object lists and dictionaries.
+- Buttons on `message()` screens did not work.
+
+## [0.4.52] - 2019-06-18
+### Added
+- The `javascript` option for `log()`.
+### Fixed
+- Potential error in Playground sidebar if the same variable name is
+  used for two different types of object.
+- Error if `json` URL parameter is not an integer.
+
+## [0.4.51] - 2019-06-13
+### Changed
+- Added the `initial` option for `update on start`.
+- Using a different mechanism for restarting servers after a software
+  update.
+### Fixed
+- LibreOffice failing when multiple instances of LibreOffice run
+  simultaneously.
+
+## [0.4.50] - 2019-06-12
+### Added
+- The `update on start` Configuration directive.
+- The `expose websockets`, `websockets ip`, and `websockets port`
+  Configuration directives.
+### Changed
+- The `include_docx_template()` function now includes images, shapes,
+  styles, footnotes, etc. from the sub-document.
+- Problem with websockets on servers with a `root` other than `/`.
+- The `/api/session` POST API endpoint will now convert dates to
+  `DADateTime` objects, unless the `raw` parameter is `1`.
+### Fixed
+- Triple spacing in RTF documents.
+- Flask route ambiguity with `/api/user/new`.
+
+## [0.4.49] - 2019-06-08
+### Changed
+- Revised the CSS classes for error messages.
+### Fixed
+- Word add-in did not work for servers with a `root` other than `/`.
+
+## [0.4.48] - 2019-06-06
+### Added
+- The `.is_encrypted()` method of `DAFile` and other file objects.
+### Fixed
+- Dependency problems when `docassemble.base` was used without
+  `docassemble.webapp`.
+- Errors in the `DAFileCollection` version of `num_pages()` and
+  `size_in_bytes()`.
+- JavaScript used `.includes()` and `.startsWith()` methods, which are
+  not universally supported.
+
+## [0.4.47] - 2019-05-31
+### Added
+- Option for `'link'` style buttons with `action_button_html()`.
+### Fixed
+- Some types of `fields` gave errors with `list collect`.
+- Error re `UserModel`.
+
+## [0.4.46] - 2019-05-30
+### Fixed
+- Recursion error with `capitalize()` function.
+- A CSS class was called `vspace` instead of `davspace`.
+- Multiple choice options not included in translation spreadsheets.
+
+## [0.4.45] - 2019-05-27
+### Added
+- The `DAOAuth` class.
+### Changed
+- Made modifications to facilitate embedding interviews in a `<div>`
+  in another site.
+- CSS and JavaScript files are now bundled.
+### Fixed
+- Errors from OneDrive integration.
+- Error reading fields from PDF.
+- Inserting certain types of images into RTF files resulted in a fatal
+  error rather than a non-fatal error.
+
+## [0.4.44] - 2019-05-21
+### Added
+- Version-specific caching of CSS and JavaScript files.
+- The `sort()` and `sort_elements()` methods for `DAList`.
+### Changed
+- `terms` and `auto terms` are now compatible with the `translations`
+  block.
+- Files in the Playground will be served from server rather than block
+  storage.
+### Fixed
+- `static_image()` did not work with unqualified file names.
+- Some initial blocks were not included in side-by-side translation
+  files.
+- Orphaned translations did not receive syntax highlighting in
+  translation files.
+- Indented Mako was not receiving syntax highlighting in translation
+  files.
+- Translations containing emojis were being truncated in translation
+  files.
+
+## [0.4.43] - 2019-05-16
+### Added
+- The `tag` parameter for `/list`, `/api/list`, and
+  `interview_menu()`.
+- The `DAContext` object and the `use objects` option for the `data`
+  and `data from code` blocks.
+### Fixed
+- HTML error when `hide standard menu` is in use.
+
+## [0.4.42] - 2019-05-11
+### Changed
+- Many CSS classes and IDs renamed and given the `da` prefix.
+### Fixed
+- Errors with SMS interface.
+- Subclasses of `DAList` were not allowed in `list collect`.
+- Inefficiency with `last_access_time()`.
+
+## [0.4.41] - 2019-05-02
+### Added
+- The `get_docx_variables()` method of `DAFile` and other file
+  objects.
+### Fixed
+- ProxyFix settings for Docker containers behind reverse proxies.
+
+## [0.4.40] - 2019-04-29
+### Fixed
+- Python 2.7 error.
+
+## [0.4.39] - 2019-04-29
+### Fixed
+- Variables could not be converted to JSON where `None` used as
+  dictionary key.
+- Compile errors due to unused non-Python-3-compliant code in copy of
+  rtfng.
+- Playground package description formatted as text area, which
+  resulted in newlines that caused problems when uploading to GitHub.
+
+## [0.4.38] - 2019-04-25
+### Added
+- The `single_to_double_newlines()` function.
+- The `get_pdf_fields()` method of `DAFile` and other file objects.
+- The `playground examples` directive in the Configuration.
+- The `new markdown to docx` directive in the Configuration.
+### Changed
+- Style of chat messages updated; content of message from the monitor
+  is now contained in the notification received by the end user while
+  looking at a question.
+### Fixed
+- Python 3.5 error in utility function for Azure Blob Storage.
+
+## [0.4.37] - 2019-04-23
+### Fixed
+- Error affecting Python 2.7.
+
+## [0.4.36] - 2019-04-23
+### Changed
+- Syntax highlighting and word wrap for interview phrase translation files.
+- New style for chat messages.
+### Fixed
+- PAM failure in cron on Amazon Linux.
+- Link to show help tab called wrong JavaScript function.
+
+## [0.4.35] - 2019-04-20
+### Added
+- The `translations` block and the interview phrase translation file
+  download utility.
+
+## [0.4.34] - 2019-04-16
+### Changed
+- Downgraded s3cmd.
+
+## [0.4.33] - 2019-04-16
+### Added
+- `XSENDFILE` Docker environment variable.
+### Changed
+- API will now process JSON as well as form-data.
+- By default, `xsendfile` will be set to `False` in the initial
+  Configuration if `BEHINDHTTPSLOADBALANCER` is true.
+### Fixed
+- New version of ProxyFix not called with arguments for processing
+  HTTP scheme.
+
+## [0.4.32] - 2019-04-15
+### Added
+- The `as_df()` method of a table.
+- The `segment`, `segment id`, and `ga id` specifiers.
+- The `log format` Configuration directive.
+- German translations.
+### Changed
+- Upgraded s3cmd.
+### Fixed
+- Error when reading log files in multiple server configuration in
+  Python 3.
+
+## [0.4.31] - 2019-04-07
+### Fixed
+- Errors with `read_qr()`.
+
+## [0.4.30] - 2019-04-07
+### Added
+- The `editable mimetypes` and `editable extensions` configuration
+  directives.
+### Changed
+- The `worker.log` no longer exempt from backup.
+- The Redis database now backed up to rolling backup.
+- Relaxed some restrictions on multiple developers working on same
+  package in their Playgrounds.
+### Fixed
+- Problem with `write()` method of `DAFile`.
+- Problem with creating packages when author not defined.
+- Problem with `source_code` when `debug` mode not in effect.
+
+## [0.4.29] - 2019-03-28
+### Added
+- The `.size_in_bytes()` method for `DAFile`.
+### Fixed
+- Python3 could not write to S3.
+
+## [0.4.28] - 2019-03-28
+### Added
+- Portuguese translations.
+### Fixed
+- Swagger-generated setup.py files in ZIP files could not be parsed.
+- Error with gender set to "other"
+
 ## [0.4.27] - 2019-03-27
 ### Added
 - The `list collect` feature for allowing users to add multiple items
@@ -559,7 +1270,7 @@
 ### Changed
 - Using `table` with a `DADict` now sets `row_index` to the key and
   `row_item` to the value, and `DADict`s can be edited using tables.
-- No delete buttons on a `table` when deletion would cause the number 
+- No delete buttons on a `table` when deletion would cause the number
   of items to fall below `minimum_number`.
 - The `edit` option on a `table` can now use reference indices as well
   as attributes.

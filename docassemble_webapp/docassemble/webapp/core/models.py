@@ -1,6 +1,7 @@
 from docassemble.webapp.db_object import db
 from docassemble.base.config import daconfig, dbtableprefix
 from sqlalchemy import true, false
+import docassemble.webapp.users.models
 
 class Attachments(db.Model):
     __tablename__ = dbtableprefix + "attachments"
@@ -99,3 +100,12 @@ class EmailAttachment(db.Model):
 #     __tablename__ = dbtableprefix + "dbinfo"
 #     key = db.Column(db.Text(), primary_key=True)
 #     value = db.Column(db.Text())
+
+class GlobalObjectStorage(db.Model):
+    __tablename__ = dbtableprefix + "globalobjectstorage"
+    id = db.Column(db.Integer(), primary_key=True)
+    key = db.Column(db.Text(), index=True)
+    value = db.Column(db.Text())
+    encrypted = db.Column(db.Boolean(), nullable=False, server_default=true())
+    user_id = db.Column(db.Integer(), db.ForeignKey(dbtableprefix + 'user.id', ondelete='CASCADE'))
+    temp_user_id = db.Column(db.Integer(), db.ForeignKey(dbtableprefix + 'tempuser.id', ondelete='CASCADE'))

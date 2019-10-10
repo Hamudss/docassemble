@@ -1,4 +1,6 @@
 debug: True
+enable playground: True
+allow demo: True
 exitpage: https://docassemble.org
 db:
   prefix: {{DBPREFIX}}
@@ -64,6 +66,7 @@ s3:
   secret access key: {{S3SECRETACCESSKEY}}
   bucket: {{S3BUCKET}}
   region: {{S3REGION}}
+  endpoint url: {{S3ENDPOINTURL}}
 azure:
   enable: {{AZUREENABLE}}
   account name: {{AZUREACCOUNTNAME}}
@@ -75,9 +78,15 @@ use https: {{USEHTTPS}}
 use lets encrypt: {{USELETSENCRYPT}}
 lets encrypt email: {{LETSENCRYPTEMAIL}}
 behind https load balancer: {{BEHINDHTTPSLOADBALANCER}}
+xsendfile: {{XSENDFILE}}
+update on start: {{DAUPDATEONSTART}}
 url root: {{URLROOT}}
 external hostname: {{DAHOSTNAME}}
+expose websockets: {{DAEXPOSEWEBSOCKETS}}
+websockets ip: {{DAWEBSOCKETSIP}}
+websockets port: {{DAWEBSOCKETSPORT}}
 root: {{POSTURLROOT}}
 words:
   - docassemble.base:data/sources/us-words.yml
 allow non-idempotent questions: False
+web server: {{DAWEBSERVER}}
